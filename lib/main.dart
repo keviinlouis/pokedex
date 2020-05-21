@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/views/search_view.dart';
+import 'package:pokedex/pokemon_colors.dart';
+import 'package:pokedex/v2/views/list_view/pokemons_list_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,12 +8,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Pokedex',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xFFe73135),
+        primaryColor: DefaultColors.red,
+        accentColor: DefaultColors.white,
       ),
-      home: SearchView(),
+      home: PokemonsListView(),
     );
   }
 }

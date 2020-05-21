@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:pokedex/models/Pokemon.dart';
+import 'package:pokedex/models/pokemon.dart';
 import 'package:pokedex/services/pokeapi.dart';
 
 import 'pokemon_content.dart';

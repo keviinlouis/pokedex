@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/models/Pokemon.dart';
-
-import '../pokemon_colors.dart';
+import 'package:pokedex/models/pokemon.dart';
 
 class PokemonContent extends StatefulWidget {
   final PokemonModel pokemonModel;
@@ -14,8 +12,6 @@ class PokemonContent extends StatefulWidget {
 
 class _PokemonContentState extends State<PokemonContent> {
   PokemonModel get pokemon => widget.pokemonModel;
-
-  Color get color => pokemonType[widget.pokemonModel.types.first.type.name];
 
   bool _shiny = false;
 
@@ -111,13 +107,13 @@ class _PokemonContentState extends State<PokemonContent> {
         scrollDirection: Axis.horizontal,
         itemCount: pokemon.types.length,
         itemBuilder: (context, index) {
-          Types type = pokemon.types[index];
+          Type type = pokemon.types[index];
           return Card(
-            color: pokemonType[type.type.name],
+            color: Color(type.color),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                type.type.name.toUpperCase(),
+                type.name.toUpperCase(),
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
@@ -188,10 +184,6 @@ class _PokemonContentState extends State<PokemonContent> {
       fontWeight: FontWeight.bold,
     );
 
-    var name = stats.stat.name;
-
-    name = name.replaceAll('-', '\n');
-
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(
@@ -199,14 +191,14 @@ class _PokemonContentState extends State<PokemonContent> {
           Flexible(
             child: Center(
               child: Text(
-                name.toUpperCase(),
+                stats.name.toUpperCase(),
                 style: style,
               ),
             ),
           ),
           Center(
             child: Text(
-              stats.baseStat.toString(),
+              stats.value.toString(),
               style: style,
             ),
           )
